@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Last Updated - 12/24/14
-# Chris Stokes - https://github.com/stokes84/Teamspeak-Installer
-#
-# Install
-# wget -q https://raw.githubusercontent.com/stokes84/Teamspeak-Installer/master/install.sh && bash install.sh && rm -f install.sh
-#
 # Usage
 # service teamspeak start
 # service teamspeak stop
@@ -208,6 +202,9 @@ else
 	chmod +x /etc/init.d/teamspeak
 	update-rc.d teamspeak defaults
 fi
-service teamspeak start
+
+# Do not start directly!
+# service teamspeak start
+
 printf "\n${bold}Install Complete!${normal}\n"
-printf "\n${bold}Teamspeak 3 is running @ $serverip:$ts3voiceport${normal}\n"
+# printf "\n${bold}Teamspeak 3 is running @ $serverip:$ts3voiceport${normal}\n"
