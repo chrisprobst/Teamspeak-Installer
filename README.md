@@ -22,9 +22,11 @@ These need to be open and can be changed during install
 Install
 -----------
 
-#### Run the following one liner as root
+#### Run the following lines
 ```
-wget --no-check-certificate https://raw.githubusercontent.com/stokes84/Teamspeak-Installer/master/install.sh; bash install.sh; rm -f install.sh
+wget --no-check-certificate https://raw.githubusercontent.com/chrisprobst/Teamspeak-Installer/master/install.sh
+sudo bash install.sh
+rm -f install.sh
 ```
 <strong>Note:</strong> Teamspeak application files are located @ /home/ts3user/ts3server<br/>
 <strong>Note:</strong> Teamspeak service file is located @ /etc/rc.d/init.d/teamspeak (CentOS) or /etc/init.d/teamspeak (Ubuntu) <br/>
