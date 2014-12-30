@@ -159,27 +159,34 @@ if [ -f /etc/redhat-release ]; then
 	echo \"Usage \$0 start|stop|restart|status\"
 	esac" > /etc/rc.d/init.d/teamspeak
 else
-	echo "#!/bin/sh
-	# chkconfig: 2345 95 20
-	# description: Control TeamSpeak3 Server
-	# processname: /home/ts3user/ts3server/ts3server_runscript.sh
-	cd /home/ts3user/ts3server
-	case \"\$1\" in
-	'start')
-	su ts3user -c \"/home/ts3user/ts3server/ts3server_startscript.sh start\"
-	;;
-	'stop')
-	su ts3user -c \"/home/ts3user/ts3server/ts3server_startscript.sh stop\"
-	;;
-	'restart')
-	su ts3user -c \"/home/ts3user/ts3server/ts3server_startscript.sh restart\"
-	;;
-	'status')
-	su ts3user -c \"/home/ts3user/ts3server/ts3server_startscript.sh status\"
-	;;
-	*)
-	echo \"Usage \$0 start|stop|restart|status\"
-	esac" > /etc/init.d/teamspeak
+	echo "#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          teamspeak3-server
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     3 4 5
+# Default-Stop:      0 1 2 6
+# Short-Description: Control TeamSpeak3 Server
+# Description:
+#
+### END INIT INFO
+cd /home/ts3user/ts3server
+case \"\$1\" in
+'start')
+su ts3user -c \"/home/ts3user/ts3server/ts3server_startscript.sh start\"
+;;
+'stop')
+su ts3user -c \"/home/ts3user/ts3server/ts3server_startscript.sh stop\"
+;;
+'restart')
+su ts3user -c \"/home/ts3user/ts3server/ts3server_startscript.sh restart\"
+;;
+'status')
+su ts3user -c \"/home/ts3user/ts3server/ts3server_startscript.sh status\"
+;;
+*)
+echo \"Usage \$0 start|stop|restart|status\"
+esac" > /etc/init.d/teamspeak
 fi
 
 # Change permissions and ownership on the teamspeak files
