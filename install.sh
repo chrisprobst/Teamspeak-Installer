@@ -207,7 +207,8 @@ if [ -f /etc/redhat-release ]; then
 	chkconfig --level 2345 teamspeak on
 else
 	chmod +x /etc/init.d/teamspeak
-	update-rc.d teamspeak defaults
+	update-rc.d teamspeak defaults 98 02
+	insserv -v
 fi
 
 # Do not start directly!
