@@ -164,8 +164,8 @@ else
 # Provides:          teamspeak3-server
 # Required-Start:    $ALL
 # Required-Stop:     
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
+# Default-Start:     3 4 5
+# Default-Stop:      0 1 2 6
 # Short-Description: Control TeamSpeak3 Server
 # Description:
 #
