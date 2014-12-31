@@ -87,6 +87,34 @@ else
 	read -p "Press ${bold}[Enter]${normal} to continue..."
 fi
 
+# Create backup file
+echo "#!/bin/bash
+
+# Make sure backups folder exists
+mkdir -p /home/ts3user/backups
+
+# The name of the backup file
+name=\"backup@$(($(date +%s%N)/1000000)).tar\"
+echo \"Creating backup at $name\"
+
+# Make sure the teamspeak server do not run
+./ts3server_startscript.sh stop
+
+# Go into teamspeak folder
+cd /home/ts3user/ts3server
+
+# Create a backup of all relevant files
+tar -cvf $name query_ip_blacklist.txt ts3server.sqlitedb query_ip_whitelist.txt ts3server.ini
+
+# Start the teamspeak server again
+./ts3server_startscript.sh start
+
+# Move backup to folder
+mv $name /home/ts3user/backups" > /home/ts3user/ts3server/backup-teamspeak.sh
+
+# Make executable
+chmod +x /home/ts3user/ts3server/backup-teamspeak.sh
+
 # Create the ini file
 echo "machine_id=
 default_voice_port=9987
